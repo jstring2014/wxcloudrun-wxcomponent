@@ -18,7 +18,7 @@ func main() {
 
 	var g errgroup.Group
 
-	// 内部服务
+	// 内部服务 
 	g.Go(func() error {
 		r := routers.InnerServiceInit()
 		if err := r.Run("127.0.0.1:8081"); err != nil {
