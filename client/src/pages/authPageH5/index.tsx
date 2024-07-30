@@ -20,6 +20,7 @@ export default function AuthPageH5() {
                 request: getPreAuthCodeRequest,
                 noNeedCheckLogin: true
             })
+            console.log(resp1)
             if (resp.data.redirectUrl) {
                 redirectUrl = resp.data.redirectUrl.includes(window.location.origin) ? resp.data.redirectUrl : `${window.location.origin}/#${routes.redirectPage.path}`
             }
