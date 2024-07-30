@@ -16,7 +16,7 @@ import (
 var dbInstance *gorm.DB
 var cacheInstance *cache.Cache
 
-// Init 初始化数据库
+// Init 初始化数据
 func Init() error {
 	var user, pwd, addr, dataBase string
 	user = os.Getenv("MYSQL_USERNAME")
