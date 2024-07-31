@@ -23,7 +23,7 @@ func getPreAuthCodeHandler(c *gin.Context) {
 		ComponentAppid: "wx9cbac30e16c78311"//wxbase.GetAppid(),
 	}
 	log.Infof("Appid","wx9cbac30e16c78311")
-	log.Infof("getpro-auth-code",req)
+	log.Infof("getpro-auth-code",wxbase.GetAppid())
 	_, body, err := wx.PostWxJsonWithComponentToken("/cgi-bin/component/api_create_preauthcode", "", req)
 	if err != nil {
 		c.JSON(http.StatusOK, errno.ErrSystemError.WithData(err.Error()))
