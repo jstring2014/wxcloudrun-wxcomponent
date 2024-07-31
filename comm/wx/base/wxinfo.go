@@ -40,7 +40,7 @@ func GetEnvId() string {
 
 // GetAppid 获取Appid
 func GetAppid() string {
-	return appid
+	return "wx9cbac30e16c78311" //appid
 }
 
 // GetSecret 获取Secret
