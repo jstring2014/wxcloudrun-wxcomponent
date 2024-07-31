@@ -29,6 +29,7 @@ func getPreAuthCodeHandler(c *gin.Context) {
 		c.JSON(http.StatusOK, errno.ErrSystemError.WithData(err.Error()))
 		return
 	}
+	log.Infof("PostWxJsonWithComponentToken",err)
 	var resp getPreAuthCodeResp
 	if err := wx.WxJson.Unmarshal(body, &resp); err != nil {
 		log.Errorf("Unmarshal err, %v", err)
