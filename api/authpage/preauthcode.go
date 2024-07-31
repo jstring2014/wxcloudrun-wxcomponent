@@ -26,6 +26,7 @@ func getPreAuthCodeHandler(c *gin.Context) {
 	log.Infof("getpro-auth-code",req)
 	_, body, err := wx.PostWxJsonWithComponentToken("/cgi-bin/component/api_create_preauthcode", "", req)
 	if err != nil {
+		log.Errorf("1111111 err, %v", errno.ErrSystemError.WithData(err.Error()))
 		c.JSON(http.StatusOK, errno.ErrSystemError.WithData(err.Error()))
 		return
 	}
