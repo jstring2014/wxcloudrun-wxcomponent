@@ -107,6 +107,7 @@ func GetCommKv(key string, defaultValue string) string {
 	var err error
 	var kv model.CommKv
 	cli := db.Get()
+	log.Infof("key_and_default",defaultValue)
 	if err = cli.Table(commTableName).Where("`key` = ?", key).Take(&kv).Error; err != nil {
 		log.Error(err.Error())
 		return defaultValue
