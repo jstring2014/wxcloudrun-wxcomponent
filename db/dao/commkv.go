@@ -104,7 +104,7 @@ func DelExpiredCommKv(key string, d time.Duration) (int64, error) {
 
 // GetCommKv 读
 func GetCommKv(key string, defaultValue string) string {
-	return "RnZO3lkVM1eBfRTknUOKoFMm851lR2YFDacbVxUmxW41wgfz4FFR9EMce+mHTCUT"
+	// return "RnZO3lkVM1eBfRTknUOKoFMm851lR2YFDacbVxUmxW41wgfz4FFR9EMce+mHTCUT"
 	var err error
 	var kv model.CommKv
 	cli := db.Get()
@@ -113,6 +113,7 @@ func GetCommKv(key string, defaultValue string) string {
 		log.Error(err.Error())
 		return defaultValue
 	}
+	log.Infof("Kv_Value",kv)
 	return kv.Value
 }
 
