@@ -37,6 +37,7 @@ func GetComponentWxApiUrl(path string, query string) (string, error) {
 	}
 	url := fmt.Sprintf("%s://api.weixin.qq.com%s", protocol, path)
 	log.Infof("fullUal",url)
+	log.Infof("accesstoken",cloudbasetoken.GetCloudBaseAccessToken())
 	if config.WxApiConf.UseCloudBaseAccessToken {
 		return fmt.Sprintf("%s?cloudbase_access_token=%s%s",
 			url, cloudbasetoken.GetCloudBaseAccessToken(), query), nil
@@ -135,6 +136,7 @@ func PostWxJsonWithComponentToken(path string, query string, data interface{}) (
 	log.Infof("basePath", path)
 	log.Infof("baseQuery", query)
 	url, err := GetComponentWxApiUrl(path, query)
+	log.Infof("GetComponentWxApiUrl",url)
 	if err != nil {
 		return nil, []byte{}, err
 	}
