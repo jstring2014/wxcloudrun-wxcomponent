@@ -132,6 +132,8 @@ func getWxApi(url string) (*WxCommError, []byte, error) {
 
 // PostWxJsonWithComponentToken 以第三方身份向微信开放平台发起post请求
 func PostWxJsonWithComponentToken(path string, query string, data interface{}) (*WxCommError, []byte, error) {
+	log.Infof("basePath", path)
+	log.Infof("baseQuery", query)
 	url, err := GetComponentWxApiUrl(path, query)
 	if err != nil {
 		return nil, []byte{}, err
